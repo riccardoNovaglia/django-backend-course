@@ -1,10 +1,13 @@
 fileignoreconfig:
-- filename: app/app/settings.py
-  checksum: 1589dfb73887c60ebcc90c1af779a7ee97f1de1a1fff05e91ff37d7b37f631cb
-  ignore_detectors: []
 - filename: app/core/tests/test_models.py
   checksum: 2c292102f25509b0a509fa388f326311bcbe1edd1d397db39a96e64e2d0dacc1
   ignore_detectors: []
 - filename: app/core/tests/test_admin.py
   checksum: bad8b48d8a7254bb43f2bdd4f9fdaab6d723fb8ae826ffa3865177f3fccf6ad7
+  ignore_detectors: []
+- filename: app/app/settings.py
+  checksum: 7bfcc3b95220e83512c05b1d8607297fb8057465e2b6eb866a24f89cc500623d
+  ignore_detectors: []
+- filename: docker-compose.yaml
+  checksum: f2b119db914c57cbbdccb3901728f96d5f40e5a50fec4f63cc7d71aa05266096
   ignore_detectors: []

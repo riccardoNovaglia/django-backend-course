@@ -5,8 +5,14 @@ fileignoreconfig:
 - filename: app/core/tests/test_admin.py
   checksum: bad8b48d8a7254bb43f2bdd4f9fdaab6d723fb8ae826ffa3865177f3fccf6ad7
   ignore_detectors: []
+- filename: app/user/tests/test_user_api.py
+  checksum: d3a7a95dfb01ae8cfa3a93b0bdd05feeb620726dccfc50394bdb9a7874d4b5ef
+  ignore_detectors: []
 - filename: app/app/settings.py
-  checksum: 7bfcc3b95220e83512c05b1d8607297fb8057465e2b6eb866a24f89cc500623d
+  checksum: 804c08a5c9734b3105b1a2e99f0df3743659cb81609990741aad74d839077da3
+  ignore_detectors: []
+- filename: app/user/serializers.py
+  checksum: 728f454fdea9de22b46bfe8b24ea58a50a25919b26fad0d52641f0e726d61e16
   ignore_detectors: []
 - filename: docker-compose.yaml
   checksum: f2b119db914c57cbbdccb3901728f96d5f40e5a50fec4f63cc7d71aa05266096

@@ -1,0 +1,4 @@
+fileignoreconfig:
+- filename: app/app/settings.py
+  checksum: 5f55e68a4d5476c93bfacfd15167d8e80154e53921a71b6e4b22b8d97892451d
+  ignore_detectors: []

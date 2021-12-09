@@ -1,4 +1,7 @@
 fileignoreconfig:
 - filename: app/app/settings.py
-  checksum: 5f55e68a4d5476c93bfacfd15167d8e80154e53921a71b6e4b22b8d97892451d
+  checksum: 1589dfb73887c60ebcc90c1af779a7ee97f1de1a1fff05e91ff37d7b37f631cb
+  ignore_detectors: []
+- filename: app/core/tests/test_models.py
+  checksum: 2c292102f25509b0a509fa388f326311bcbe1edd1d397db39a96e64e2d0dacc1
   ignore_detectors: []

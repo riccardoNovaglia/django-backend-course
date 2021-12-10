@@ -1,6 +1,6 @@
 fileignoreconfig:
 - filename: app/core/tests/test_models.py
-  checksum: 2c292102f25509b0a509fa388f326311bcbe1edd1d397db39a96e64e2d0dacc1
+  checksum: 9aa117769319bef2d7f44b6376920e9de38c013385828009914621722f5049d6
   ignore_detectors: []
 - filename: app/core/tests/test_admin.py
   checksum: bad8b48d8a7254bb43f2bdd4f9fdaab6d723fb8ae826ffa3865177f3fccf6ad7
@@ -10,7 +10,7 @@ fileignoreconfig:
   ignore_detectors: []
 - filename: app/app/settings.py
   checksum: 5b39f49c7ac501265040ebc605fa745ea7b96c1d20080f8ac7983ad1606e71c6
-  ignore_detectors: []
+  ignore_detectors: [filename]
 - filename: app/user/serializers.py
   checksum: 835d63a2c3f47251634cd22fbf3da6def2d8beaa2a2527337df6d742eb275b87
   ignore_detectors: []

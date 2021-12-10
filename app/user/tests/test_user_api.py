@@ -7,6 +7,7 @@ from rest_framework import status
 
 CREATE_USER_URL = reverse('user:create')
 TOKEN_URL = reverse('user:token')
+ME_URL = reverse('user:me')
 
 
 def create_user(**params):
@@ -87,3 +88,56 @@ class PublicUserApiTest(TestCase):
 
         self.assertEqual(res.status_code, status.HTTP_400_BAD_REQUEST)
         self.assertNotIn('token', res.data)
+
+    def test_me_endpoint_requires_authentication(self):
+        res = self.client.get(ME_URL)
+
+        self.assertEqual(res.status_code, status.HTTP_401_UNAUTHORIZED)
+
+
+class PrivateUserApiTest(TestCase):
+    def setUp(self):
+        self.user = create_user(
+            email='some@email.com',
+            password='irrelevant',
+            name='some-name'
+        )
+        self.client = APIClient()
+        self.client.force_authenticate(user=self.user)
+
+    def test_gets_profile_when_authenticated(self):
+        res = self.client.get(ME_URL)
+
+        self.assertEqual(res.status_code, status.HTTP_200_OK)
+        self.assertEqual(res.data, {
+            'email': self.user.email,
+            'name': self.user.name
+        })
+
+    def test_post_is_not_allowed(self):
+        res = self.client.post(ME_URL)
+        self.assertEqual(res.status_code, status.HTTP_405_METHOD_NOT_ALLOWED)
+
+    def test_updates_email_when_sent(self):
+        new_email = 'new@test.com'
+        old_email = self.user.email
+        res = self.client.patch(ME_URL, {'email': new_email, })
+
+        self.assertEqual(res.status_code, status.HTTP_200_OK)
+        self.assertEqual(res.data['email'], new_email)
+        self.assertEqual(self.user.email, new_email)
+
+        self.assertFalse(
+            get_user_model().objects.filter(email=old_email).exists()
+        )
+        self.assertTrue(
+            get_user_model().objects.filter(email=new_email).exists()
+        )
+
+    def test_updates_password_when_sent(self):
+        new_password = 'new-password'
+        res = self.client.patch(ME_URL, {'password': new_password, })
+
+        self.assertEqual(res.status_code, status.HTTP_200_OK)
+        self.assertNotIn('password', res.data['email'])
+        self.assertTrue(self.user.check_password(new_password))

@@ -9,7 +9,7 @@ fileignoreconfig:
   checksum: db1512c4b1b7212e2781215e0e74bec4497d49657790ea43dd79992f9045eadb
   ignore_detectors: []
 - filename: app/app/settings.py
-  checksum: 804c08a5c9734b3105b1a2e99f0df3743659cb81609990741aad74d839077da3
+  checksum: 5b39f49c7ac501265040ebc605fa745ea7b96c1d20080f8ac7983ad1606e71c6
   ignore_detectors: []
 - filename: app/user/serializers.py
   checksum: 835d63a2c3f47251634cd22fbf3da6def2d8beaa2a2527337df6d742eb275b87

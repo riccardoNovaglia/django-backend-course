@@ -2,7 +2,7 @@ from rest_framework import authentication, permissions, viewsets, mixins
 
 from core.models import Tag, Ingredient, Recipe
 from recipe.serializers import TagSerializer, IngredientSerializer, \
-    RecipeSerializer
+    RecipeSerializer, RecipeDetailSerializer
 
 
 class AuthenticatedListCreateView(viewsets.GenericViewSet,
@@ -39,3 +39,9 @@ class RecipeView(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
+
+    def get_serializer_class(self):
+        if self.action == 'retrieve':
+            return RecipeDetailSerializer
+
+        return RecipeSerializer

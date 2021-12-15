@@ -24,4 +24,3 @@ class GreetingResponse:
 
 class GreetingResponseSerializer(serializers.Serializer):
     greeting = serializers.CharField()
-

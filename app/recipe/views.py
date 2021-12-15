@@ -1,8 +1,12 @@
-from rest_framework import authentication, permissions, viewsets, mixins
+from rest_framework import authentication, mixins, permissions, viewsets
 
-from core.models import Tag, Ingredient, Recipe
-from recipe.serializers import TagSerializer, IngredientSerializer, \
-    RecipeSerializer, RecipeDetailSerializer
+from core.models import Ingredient, Recipe, Tag
+from recipe.serializers import (
+    IngredientSerializer,
+    RecipeDetailSerializer,
+    RecipeSerializer,
+    TagSerializer,
+)
 
 
 class AuthenticatedListCreateView(viewsets.GenericViewSet,

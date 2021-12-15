@@ -11,7 +11,8 @@ class TestCatsApi(APITestCase):
 
     def test_greets_returns_a_200_with_meow_and_the_provided_name(self):
         name = 'some name'
-        res = self.client.post('/api/cats/greet', {'name': name}, format='json')
+        res = self.client.post('/api/cats/greet', {'name': name},
+                               format='json')
         self.assertEqual(res.status_code, status.HTTP_200_OK)
         self.assertEqual(res.json()['greeting'], f'hello {name}')
 

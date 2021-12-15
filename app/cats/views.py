@@ -1,8 +1,11 @@
 from django.http import JsonResponse
 from rest_framework.parsers import JSONParser
 
-from cats.serializers import GreetingRequestSerializer, GreetingResponse, \
-    GreetingResponseSerializer
+from cats.serializers import (
+    GreetingRequestSerializer,
+    GreetingResponse,
+    GreetingResponseSerializer,
+)
 
 
 def cats(request):

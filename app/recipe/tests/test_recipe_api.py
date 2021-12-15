@@ -4,7 +4,7 @@ from django.urls import reverse
 from rest_framework import status
 from rest_framework.test import APIClient
 
-from core.models import Recipe, Ingredient, Tag
+from core.models import Ingredient, Recipe, Tag
 
 RECIPES_URL = reverse("recipe:recipe-list")
 

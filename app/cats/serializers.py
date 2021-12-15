@@ -10,7 +10,7 @@ class GreetingRequestSerializer(serializers.Serializer):
     name = serializers.CharField()
 
     def update(self, instance, validated_data):
-        instance.name = validated_data.get('name', instance.name)
+        instance.name = validated_data.get("name", instance.name)
         return instance
 
     def create(self, validated_data):
@@ -19,7 +19,7 @@ class GreetingRequestSerializer(serializers.Serializer):
 
 class GreetingResponse:
     def __init__(self, name):
-        self.greeting = f'hello {name}'
+        self.greeting = f"hello {name}"
 
 
 class GreetingResponseSerializer(serializers.Serializer):

@@ -4,3 +4,4 @@ psycopg2-binary==2.9.2
 
 flake8==4.0.1
 isort==5.10.1
+black==21.12b0 # intelliJ doesn't seem to recognize it, but it's fine

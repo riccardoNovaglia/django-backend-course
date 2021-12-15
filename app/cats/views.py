@@ -9,7 +9,7 @@ from cats.serializers import (
 
 
 def cats(request):
-    return JsonResponse({'message': "meow"})
+    return JsonResponse({"message": "meow"})
 
 
 def greet(request):
@@ -22,4 +22,4 @@ def greet(request):
         response_serializer = GreetingResponseSerializer(response)
         return JsonResponse(response_serializer.data)
 
-    return JsonResponse({'errors': serializer.errors}, status=400)
+    return JsonResponse({"errors": serializer.errors}, status=400)

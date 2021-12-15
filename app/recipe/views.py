@@ -9,14 +9,14 @@ from recipe.serializers import (
 )
 
 
-class AuthenticatedListCreateView(viewsets.GenericViewSet,
-                                  mixins.ListModelMixin,
-                                  mixins.CreateModelMixin):
+class AuthenticatedListCreateView(
+    viewsets.GenericViewSet, mixins.ListModelMixin, mixins.CreateModelMixin
+):
     authentication_classes = (authentication.TokenAuthentication,)
     permission_classes = (permissions.IsAuthenticated,)
 
     def get_queryset(self):
-        return self.queryset.filter(user=self.request.user).order_by('-name')
+        return self.queryset.filter(user=self.request.user).order_by("-name")
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
@@ -39,13 +39,13 @@ class RecipeView(viewsets.ModelViewSet):
     permission_classes = (permissions.IsAuthenticated,)
 
     def get_queryset(self):
-        return self.queryset.filter(user=self.request.user).order_by('-title')
+        return self.queryset.filter(user=self.request.user).order_by("-title")
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
 
     def get_serializer_class(self):
-        if self.action == 'retrieve':
+        if self.action == "retrieve":
             return RecipeDetailSerializer
 
         return RecipeSerializer

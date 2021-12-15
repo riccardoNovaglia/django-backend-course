@@ -4,19 +4,15 @@ from django.test import TestCase
 from core import models
 
 
-def sample_user(email='test@test.com', password='irrelevant'):
+def sample_user(email="test@test.com", password="irrelevant"):
     return get_user_model().objects.create_user(email, password)
 
 
 class ModelTests(TestCase):
-
     def test_create_user_with_email_successful(self):
         email = "test@something.com"
         password = "Testpass123"
-        user = get_user_model().objects.create_user(
-            email=email,
-            password=password
-        )
+        user = get_user_model().objects.create_user(email=email, password=password)
 
         self.assertEqual(user.email, email)
         self.assertNotEqual(user.password, password)
@@ -30,7 +26,7 @@ class ModelTests(TestCase):
 
     def test_new_user_without_email_raises_error(self):
         with self.assertRaises(ValueError):
-            get_user_model().objects.create_user(None, 'not important')
+            get_user_model().objects.create_user(None, "not important")
 
     def test_superuser_created(self):
         user = get_user_model().objects.create_superuser("test@t.com", "test")
@@ -39,24 +35,17 @@ class ModelTests(TestCase):
         self.assertTrue(user.is_staff)
 
     def test_tag_turns_into_correct_string(self):
-        tag = models.Tag.objects.create(
-            user=sample_user(),
-            name='Vegan'
-        )
+        tag = models.Tag.objects.create(user=sample_user(), name="Vegan")
         self.assertEqual(str(tag), tag.name)
 
     def test_ingredient_turns_into_correct_string(self):
         ingredient = models.Ingredient.objects.create(
-            user=sample_user(),
-            name='some ingredient'
+            user=sample_user(), name="some ingredient"
         )
         self.assertEqual(str(ingredient), ingredient.name)
 
     def test_recipe_turns_into_correct_string(self):
         recipe = models.Recipe.objects.create(
-            user=sample_user(),
-            title='some recipe',
-            time_minutes=5,
-            price=5.00
+            user=sample_user(), title="some recipe", time_minutes=5, price=5.00
         )
         self.assertEqual(str(recipe), recipe.title)
